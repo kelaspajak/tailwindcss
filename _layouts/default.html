@@ -2,7 +2,6 @@
   <meta charset="utf-8">
   {% feed_meta %}
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-  <link rel="stylesheet" href="/css/site.css?d={{ site.time | date: '%s' }}">
   <script src="https://cdn.jsdelivr.net/combine/npm/axios@0.19.2/dist/axios.min.js,npm/dlv@1.1.3/dist/dlv.umd.min.js,gh/alpinejs/alpine@v2.0.1/dist/alpine.js" defer></script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -10,9 +9,9 @@
     <link rel="canonical" href="{{ page.url | prepend: site.url }}">
     <!-- dedafult <meta name="viewport" content="width=device-width, initial-scale=1">-->
     {% if jekyll.environment != 'development' %}
-      <link rel="stylesheet" href="{{ site.baseurl}}/css/site.css?d={{ site.time | date: '%s' }}">
+      <link rel="stylesheet" href="{{ site.baseurl }}/css/site.css?d={{ site.time | date: '%s' }}">
     {% else %}
-      <link rel="stylesheet" href="{{ site.baseurl}}/css/site.css">
+      <link rel="stylesheet" href="{{ site.baseurl }}/css/site.css">
     {% endif %}  
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
