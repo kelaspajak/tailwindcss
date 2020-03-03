@@ -9,13 +9,26 @@
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
 # Build settings
+title: KelasPajakWithLess
+description: Mudahnya belajar perpajakan Indonesia
+permalink: pretty
+twitter_username: kelaspajakwith1
+instagram: kelaspajakwith
+
+encoding: UTF-8
+
 markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-postcss
-  - jekyll-purgecss
+  - jekyll-purgecss  
+  - jekyll-mentions
+  - jekyll-octicons
+  - jekyll-readme-index
+  - jekyll-redirect-from
+  - jemoji
 
 # jekyll-seo-tag configuration
 author: ""
@@ -43,8 +56,17 @@ exclude:
   - netlify.toml
   - bin
   - .gitignore
-  - [vendor]
+  - vendor
+  - ".git*"
 
 repository: kelaspajak/ewtail
 
 github: [metadata]
+
+include:
+  - _pages
+
+branch: master
+
+# Google Analytics
+google_analytics: UA-146778045-2
