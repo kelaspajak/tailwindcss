@@ -71,4 +71,4 @@ branch: master
 # Google Analytics
 google_analytics: UA-146778045-2
 
-baseurl: ewtail/
+baseurl: /ewtail
