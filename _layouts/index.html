@@ -10,9 +10,9 @@ layout: default
         {{ page.title }}
       </p>
     </div>
-    <div  x-data="{ show: false }" x-init="setTimeout(() => show = true, 800)" x-show="show" x-transition:enter="ease-out duration-600" x-transition:enter-start="opacity-0 scale-50 translate-y-2" x-transition:enter-end="opacity-100 scale-100 translate-y-0" x-transition:leave="ease-in duration-600" x-transition:leave-start="opacity-100 scale-100 translate-y-0" x-transition:leave-end="opacity-0 scale-100 translate-y-2" class="transition transform">
+    <div>
       <dl>
-        <div class="bg-white py-5 sm:grid md:grid-cols-5 sm:gap-4 px-4 sm:px-6">
+        <div class="bg-white py-5 sm:grid md:grid-cols-5 sm:gap-4 px-4 sm:px-6 transition transform" x-data="{ show: false }" x-init="setTimeout(() => show = true, 300)" x-show="show" x-transition:enter="ease-in duration-600" x-transition:enter-start="opacity-0 scale-50 translate-y-2" x-transition:enter-end="opacity-100 scale-100 translate-y-0" x-transition:leave="ease-in duration-600" x-transition:leave-start="opacity-100 scale-100 translate-y-0" x-transition:leave-end="opacity-0 scale-100 translate-y-2">
             {% assign dataidCategory = site.data[page.dataid] | group_by: "Category" | sort: "SortCategory" | reverse %}
             {% for byIdCategory in dataidCategory %}
             <dd id="{{ byIdCategory.name }}" class="text-md leading-5 font-medium text-gray-800 mt-3">
