@@ -10,7 +10,7 @@ layout: default
         {{ page.title }}
       </p>
     </div>
-    <div>
+    <div  x-data="{ show: false }" x-init="setTimeout(() => show = true, 800)" x-show="show" x-transition:enter="ease-out duration-600" x-transition:enter-start="opacity-0 scale-50 translate-y-2" x-transition:enter-end="opacity-100 scale-100 translate-y-0" x-transition:leave="ease-in duration-600" x-transition:leave-start="opacity-100 scale-100 translate-y-0" x-transition:leave-end="opacity-0 scale-100 translate-y-2" class="transition transform">
       <dl>
         <div class="bg-white py-5 sm:grid md:grid-cols-5 sm:gap-4 px-4 sm:px-6">
             {% assign dataidCategory = site.data[page.dataid] | group_by: "Category" | sort: "SortCategory" | reverse %}
@@ -53,14 +53,9 @@ layout: default
                     <li x-on:click="open()" class="border-t first:border-t-0 border-gray-200 pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5 hover:bg-green-100">
                       <div class="w-0 flex-1 flex items-center" id="{{item.Document}}">
                           <svg class="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path d="M20 6a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h7.41l2 2H20zM4 6v12h16V8h-7.41l-2-2H4z"/></svg>
-                      <span class="ml-2 flex-1 w-0 truncate text-xl">
+                      <span class="ml-2 flex-1 w-0 truncate">
                         {{ topic.name }} 
                       </span>
-                      </div>
-                      <div class="ml-4 flex-shrink-0">
-                        <button class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out">
-                          Buka Folder
-                        </button>
                       </div>
                     </li>
 
@@ -68,13 +63,11 @@ layout: default
                       <div class="w-0 flex-1 flex items-center" id="{{item.Document}}">
                           <svg class="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path d="M20 6a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h7.41l2 2H20zM4 6v12h16V8h-7.41l-2-2H4z"/></svg>
                       <span class="ml-2 flex-1 w-0 truncate">
-                        {{ topic.name }} 
+                        {{ topic.name }}
                       </span>
                       </div>
                       <div class="ml-4 flex-shrink-0">
-                        <button class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out">
-                          Buka Folder
-                        </button>
+                        Buka Folder
                       </div>
                     </li>
 
