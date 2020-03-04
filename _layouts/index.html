@@ -24,7 +24,7 @@ layout: default
                     {% for item in listItems %}
                     {% if item.Topic != nil %}
                     {% else %}
-                    <a href="#">
+                    
                         <li class="border-t first:border-t-0 border-gray-200 pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5 hover:bg-green-100">
                             <div class="w-0 flex-1 flex items-center">
                                 {% if item.Extension != nil %}
@@ -35,7 +35,7 @@ layout: default
                             </span>
                             </div>
                         </li>
-                    </a>
+                    
                     {% endif %}
                     {% endfor %}
                 </ul>
