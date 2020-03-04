@@ -3,6 +3,7 @@ module.exports = {
   },
   variants: {
     borderWidth: ['responsive', 'first', 'hover', 'focus'],
+    boxShadow: ['hover'],
   },
   plugins: [],
 }
