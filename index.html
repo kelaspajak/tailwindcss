@@ -1,70 +1,54 @@
 ---
 layout: default
+dataid: kup
 ---
-<div class="bg-white shadow overflow-hidden sm:rounded-lg px-4 sm:py-12 sm:px-6 lg:px-8">
-  <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
-    <h3 class="text-lg leading-6 font-medium text-gray-900">
-      Applicant Information
+<div class="container mx-auto bg-white overflow-hidden sm:rounded-lg">
+  <div class="px-4 py-5 border-b border-gray-300 sm:px-6">
+    <h3 class="text-3xl leading-6 font-bold text-gray-900">
+      {{ page.description }}
     </h3>
-    <p class="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
-      Personal details and application.
+    <p class="mt-2 max-w-2xl text-sm leading-5 text-gray-500">
+      {{ page.title }}
     </p>
   </div>
   <div>
     <dl>
-      <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-        <dd class="text-sm leading-5 font-medium text-gray-500">
-          Attachments
-        </dd>
-        <dt class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-          <ul class="border border-gray-200 rounded-md">
-            <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
-              <div class="w-0 flex-1 flex items-center">
-                <svg class="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd"/>
-                </svg>
+      <div class="bg-white py-5 sm:grid md:grid-cols-3 lg:grid-cols-6 sm:gap-4 px-4 sm:px-6 transition transform"
+        x-data="{ show: false }" x-init="setTimeout(() => show = true, 300)" x-show="show"
+        x-transition:enter="ease-in duration-600" x-transition:enter-start="opacity-0 scale-50 translate-y-2"
+        x-transition:enter-end="opacity-100 scale-100 translate-y-0" x-transition:leave="ease-in duration-600"
+        x-transition:leave-start="opacity-100 scale-100 translate-y-0"
+        x-transition:leave-end="opacity-0 scale-100 translate-y-2">
+        {% capture KUP %}kup{% endcapture %}
+        
+        <div class="lg:col-span-1"></div>
+        <div class="md:col-span-1" id="" class="text-md leading-5 font-medium text-gray-800 mt-3">
+          Resume KUP
+        </div>
+
+        <div class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 md:col-span-3">
+          <ul x-data="dropdown()" class="border border-gray-300 rounded-md hover:shadow-md focus:shadow-outline">
+            {% assign dataidCategory = site.data[page.dataid] | sort: "Last Updated" | reverse %}
+            {% for item in dataidCategory limit:10 %}
+            <li class="border-t first:border-t-0 border-gray-300 pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5 hover:bg-green-100">
+              <div class="w-0 flex-1 flex items-center" id="">
+                <svg class="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24" width="24" height="24">
+                  <path class="heroicon-ui"
+                    d="M20.12 11.95l-6.58 6.59a5 5 0 1 1-7.08-7.07l6.59-6.6a3 3 0 0 1 4.24 4.25l-6.58 6.59a1 1 0 1 1-1.42-1.42l6.59-6.58a1 1 0 0 0-1.42-1.42l-6.58 6.59a3 3 0 0 0 4.24 4.24l6.59-6.58a5 5 0 0 0-7.08-7.08l-6.58 6.6a7 7 0 0 0 9.9 9.9l6.59-6.6a1 1 0 0 0-1.42-1.4z" />
+                  </svg>
                 <span class="ml-2 flex-1 w-0 truncate">
-                  resume_back_end_developer.pdf
+                  {{item.Document}}
                 </span>
               </div>
-              <div class="ml-4 flex-shrink-0">
-                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out">
-                  Download
-                </a>
-              </div>
             </li>
-            <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
-              <div class="w-0 flex-1 flex items-center">
-                <svg class="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd"/>
-                </svg>
-                <span class="ml-2 flex-1 w-0 truncate">
-                  resume_back_end_developer.pdf
-                </span>
-              </div>
-              <div class="ml-4 flex-shrink-0">
-                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out">
-                  Download
-                </a>
-              </div>
-            </li>
-            <li class="border-t border-gray-200 pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
-              <div class="w-0 flex-1 flex items-center">
-                <svg class="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd"/>
-                </svg>
-                <span class="ml-2 flex-1 w-0 truncate">
-                  coverletter_back_end_developer.pdf
-                </span>
-              </div>
-              <div class="ml-4 flex-shrink-0">
-                <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out">
-                  Download
-                </a>
-              </div>
-            </li>
+            {% endfor %}
           </ul>
-        </dt>
+        </div>
+        <div class="lg:col-span-1"></div>
+
+        <!-- AKHIR LOOPING -->
+
       </div>
     </dl>
   </div>
