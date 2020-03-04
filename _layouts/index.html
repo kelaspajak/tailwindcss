@@ -12,34 +12,78 @@ layout: default
     </div>
     <div>
       <dl>
-        <div class="bg-white py-5 sm:grid md:grid-cols-4 sm:gap-4 px-4 sm:px-6">
+        <div class="bg-white py-5 sm:grid md:grid-cols-5 sm:gap-4 px-4 sm:px-6">
             {% assign dataidCategory = site.data[page.dataid] | group_by: "Category" | sort: "SortCategory" | reverse %}
             {% for byIdCategory in dataidCategory %}
-            <dd class="text-sm leading-5 font-medium text-gray-500 mt-3">
-                {{ byIdCategory.name }}
+            <dd id="{{ byIdCategory.name }}" class="text-md leading-5 font-medium text-gray-800 mt-3">
+              {{ byIdCategory.name }}
             </dd>
-            <dt class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 md:col-span-3">
-                <ul class="border border-gray-200 rounded-md">
+            <dt class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 md:col-span-4">
+                <ul x-data="dropdown()" class="border border-gray-200 rounded-md">
                     {% assign listItems = byIdCategory.items | sort: 'P#' %}                    
                     {% for item in listItems %}
                     {% if item.Topic != nil %}
                     {% else %}
                     
                         <li class="border-t first:border-t-0 border-gray-200 pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5 hover:bg-green-100">
-                            <div class="w-0 flex-1 flex items-center">
-                                {% if item.Extension != nil %}
-                                    <svg class="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M20.12 11.95l-6.58 6.59a5 5 0 1 1-7.08-7.07l6.59-6.6a3 3 0 0 1 4.24 4.25l-6.58 6.59a1 1 0 1 1-1.42-1.42l6.59-6.58a1 1 0 0 0-1.42-1.42l-6.58 6.59a3 3 0 0 0 4.24 4.24l6.59-6.58a5 5 0 0 0-7.08-7.08l-6.58 6.6a7 7 0 0 0 9.9 9.9l6.59-6.6a1 1 0 0 0-1.42-1.4z"/></svg>
-                                {% endif %}
+                            <div class="w-0 flex-1 flex items-center" id="{{item.Document}}">
+                                <svg class="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M20.12 11.95l-6.58 6.59a5 5 0 1 1-7.08-7.07l6.59-6.6a3 3 0 0 1 4.24 4.25l-6.58 6.59a1 1 0 1 1-1.42-1.42l6.59-6.58a1 1 0 0 0-1.42-1.42l-6.58 6.59a3 3 0 0 0 4.24 4.24l6.59-6.58a5 5 0 0 0-7.08-7.08l-6.58 6.6a7 7 0 0 0 9.9 9.9l6.59-6.6a1 1 0 0 0-1.42-1.4z"/></svg>
                             <span class="ml-2 flex-1 w-0 truncate">
                                 {{item.Document}}
                             </span>
                             </div>
+                            {% if item.Extension != nil %}
+                            <div class="ml-4 flex-shrink-0">
+                              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out">
+                                Buka file
+                              </a>
+                            </div>
+                            {% endif %}
                         </li>
-                    
                     {% endif %}
                     {% endfor %}
+
+                    {% comment %}
+                        untuk yang ada topiknya
+                    {% endcomment %}
+                    {% capture categoryName %}{{byIdCategory.name}}{% endcapture %}
+                    {% assign topics = site.data[page.dataid] | where: "Category", categoryName | group_by: 'Topic' | sort: "SortTopic" | reverse %}
+                    {% for topic in topics %}
+                    {% if topic.name.size > 0 %}
+                    <li x-on:click="open()" class="border-t first:border-t-0 border-gray-200 pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5 hover:bg-green-100">
+                      <div class="w-0 flex-1 flex items-center" id="{{item.Document}}">
+                          <svg class="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path d="M20 6a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h7.41l2 2H20zM4 6v12h16V8h-7.41l-2-2H4z"/></svg>
+                      <span class="ml-2 flex-1 w-0 truncate text-xl">
+                        {{ topic.name }} 
+                      </span>
+                      </div>
+                      <div class="ml-4 flex-shrink-0">
+                        <button class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out">
+                          Buka Folder
+                        </button>
+                      </div>
+                    </li>
+
+                    <li x-show="isOpen()" x-on:click.away="close()" class="border-t first:border-t-0 border-gray-200 pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5 hover:bg-green-100">
+                      <div class="w-0 flex-1 flex items-center" id="{{item.Document}}">
+                          <svg class="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path d="M20 6a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h7.41l2 2H20zM4 6v12h16V8h-7.41l-2-2H4z"/></svg>
+                      <span class="ml-2 flex-1 w-0 truncate">
+                        {{ topic.name }} 
+                      </span>
+                      </div>
+                      <div class="ml-4 flex-shrink-0">
+                        <button class="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out">
+                          Buka Folder
+                        </button>
+                      </div>
+                    </li>
+
+                    {% else %} 
+                    {% endif %}
+                    {%endfor%}
                 </ul>
             </dt>
+             <!-- AKHIR LOOPING -->
             {% endfor %}
         </div>
       </dl>
