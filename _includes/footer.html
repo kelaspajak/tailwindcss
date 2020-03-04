@@ -43,3 +43,18 @@
       </div>
     </div>
   </div>
+
+  <script>
+    /*
+      https://benfurfie.co.uk/articles/alpinejs-a-lightweight-alternative-to-vue
+      untuk dropdown  buka topik
+    */
+    function dropdown() {
+        return {
+            show: false,
+            open() { this.show = true },
+            close() { this.show = false },
+            isOpen() { return this.show === true },
+        }
+    }
+</script>
