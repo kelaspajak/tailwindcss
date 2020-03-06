@@ -9,13 +9,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="canonical" href="{{ page.url | prepend: site.url }}">
+    
     <!-- default <meta name="viewport" content="width=device-width, initial-scale=1">-->
     {% if jekyll.environment != 'development' %}
       <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/site.css?d={{ site.time | date: '%s' }}">
-      <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/article.css?d={{ site.time | date: '%s' }}">
+      
     {% else %}
       <link rel="stylesheet" href="{{ site.baseurl }}/css/site.css">
-    {% endif %}  
+    {% endif %}
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/article.css?d={{ site.time | date: '%s' }}">  
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     {% seo %}
