@@ -9,11 +9,22 @@ permalink: /masonry
     <div class="max-w-screen-lg w-full">
 
         <div class="grid-layout">
-            {% assign dataidCategory = site.data[page.dataid] | sort: "SortCategory" | reverse %}
-            {% for byIdCategory in dataidCategory %}
-            <div class="grid-item grid-item-{{byIdCategory.size}}">
-                {{ byIdCategory.Document }} - {{byIdCategory.Document.size}}
-            </div>
+            {% capture kup %}kup{% endcapture %}
+            {% assign dataidCategory = site.data[kup] | sort: "SortCategory" | reverse %}
+            {% for byIdCategory in dataidCategory limit:10 %}
+            {% include masonry.html content=kup %}
+            {%endfor%}
+
+            {% capture ppn %}ppn{% endcapture %}
+            {% assign dataidCategory = site.data[ppn] | sort: "SortCategory" | reverse %}
+            {% for byIdCategory in dataidCategory limit:10 %}
+                {% include masonry.html content=ppn %}
+            {%endfor%}
+
+            {% capture pph %}pph{% endcapture %}
+            {% assign dataidCategory = site.data[pph] | sort: "SortCategory" | reverse %}
+            {% for byIdCategory in dataidCategory limit:10 %}
+            {% include masonry.html content=pph %}
             {%endfor%}
         </div>
 </div>
