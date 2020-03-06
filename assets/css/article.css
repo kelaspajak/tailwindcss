@@ -9,9 +9,7 @@
 }
 
 .grid-item {
-    padding: 1rem;
-    font-size: 14px;
-    font-weight: bold;    
+    padding: 1rem; 
     background-color: #faf089;
     border-radius: 5px;
 }
@@ -22,7 +20,7 @@
 }
 
 .span-2 {
-    grid-column-end: span 2;
+    grid-column-end: 2;
     grid-row-end: span 2;
 }
 
@@ -35,10 +33,6 @@
     grid-column-end: span 2;
     grid-row-end: span 2;
     background-color: #424242;
-}
-
-.grid-p {
-    font-size: .875rem;
 }
 
 .ppn {
