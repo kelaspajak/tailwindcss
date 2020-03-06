@@ -1,0 +1,20 @@
+---
+layout: default
+dataid: pph
+title: KUP
+description: Ketentuan Umum dan Tatacara Perpajakan
+permalink: /masonry
+---
+<div class="flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-screen-lg w-full">
+
+        <div class="grid-layout">
+            {% assign dataidCategory = site.data[page.dataid] | sort: "SortCategory" | reverse %}
+            {% for byIdCategory in dataidCategory %}
+            <div class="grid-item grid-item-{{byIdCategory.size}}">
+                {{ byIdCategory.Document }} - {{byIdCategory.Document.size}}
+            </div>
+            {%endfor%}
+        </div>
+</div>
+</div>

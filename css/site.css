@@ -17,3 +17,38 @@ html{
     font-family: Inter,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
     line-height:1.5 !important
 }
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-gap: 10px;
+    grid-auto-rows: minmax(max-content, auto);
+    grid-auto-flow: dense;
+    padding: 10px;
+}
+
+.grid-item {
+    @apply p-4 text-base font-semibold text-gray-700 bg-white rounded rounded-lg;
+}
+
+.grid-item:nth-of-type(3n+1){
+    @apply bg-teal-300;
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+}
+
+.span-2 {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+}
+
+.span-3 {
+    grid-column-end: span 3;
+    grid-row-end: span 4;
+}
+
+.grid-featured {
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+    background-color: #424242;
+}

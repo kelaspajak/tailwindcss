@@ -31,14 +31,11 @@ plugins:
   - jemoji
 
 # jekyll-seo-tag configuration
-author: ""
-url: ""
-title: ""
-description: ""
-twitter:
-  username: ""
-  card: ""
-logo: "path/to/image"
+sass:
+  style: :compressed
+  sass_dir: _sass
+  load_paths:
+    - node_modules
 
 
 # Exclude from processing.

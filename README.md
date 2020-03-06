@@ -70,3 +70,6 @@ bin/new POST_TITLE
 ## Deployment
 
 This setup has been tested on [Netlify](https://www.netlify.com).  The JEKYLL_ENV environment variable must be set to production in order for PurgeCSS to execute. The included netlify.toml file will configure this on Netlify deploys
+
+## CSS
+https://css-tricks.com/piecing-together-approaches-for-a-css-masonry-layout/
