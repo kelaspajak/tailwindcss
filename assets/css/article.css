@@ -15,11 +15,6 @@ hr.image {
     padding-bottom: 50%;
 }
 
-.page {
-    padding: 2em;
-    background: #cecece;
-    max-width: 1100px;
-}
 
 .archive {
     display: grid;
