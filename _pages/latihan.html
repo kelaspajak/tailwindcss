@@ -8,106 +8,26 @@ permalink: /latihan
 <div class="flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
   <div class="max-w-screen-lg w-full">
     <div class="archive">
-      <article class="article">1
-        <hr class="image">
-        <hr>
+      {% capture kup %}kup{% endcapture %}
+      {% assign dataidCategory = site.data[kup] | sort: "Last Updated" | reverse %}
+      {% for item in dataidCategory limit:30 %}
+      <article class="article text-base">
+        {{ item.Document }}
+
+          <img class="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains">
+          <div class="px-6 py-4">
+            <p class="text-gray-700 text-xs">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+            </p>
+          </div>
+          <div class="px-6 py-4">
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#travel</span>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">#winter</span>
+          </div>
+
       </article>
-      <article class="article">2
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-      </article>
-      <article class="article">3
-        <hr>
-        <hr>
-        <hr>
-      </article>
-      <article class="article">4
-        <hr class="image">
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-      </article>
-      <article class="article">5
-        <hr>
-        <hr>
-        <hr>
-      </article>
-      <article class="article">6
-        <hr>
-        <hr>
-        <hr>
-      </article>
-      <article class="article">7
-        <hr>
-        <hr>
-        <hr>
-      </article>
-      <article class="article">8
-        <hr>
-        <hr>
-      </article>
-      <article class="article">9
-        <hr>
-        <hr>
-        <hr>
-      </article>
-      <article class="article">10
-        <hr>
-        <hr>
-      </article>
-      <article class="article">11
-        <hr>
-        <hr>
-        <hr>
-      </article>
-      <article class="article">12
-        <hr class="image">
-        <hr>
-        <hr>
-        <hr>
-      </article>
-      <article class="article">13
-        <hr class="image">
-        <hr>
-        <hr>
-      </article>
-      <article class="article">14
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-      </article>
-      <article class="article">15
-        <hr class="image">
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-      </article>
-      <article class="article">16
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-      </article>
-      <article class="article">17
-        <hr>
-        <hr>
-        <hr>
-      </article>
+      {% endfor %}
     </div>
   </div> 
 </div>
