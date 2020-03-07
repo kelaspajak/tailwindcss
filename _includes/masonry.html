@@ -1,5 +1,5 @@
 <div class="grid-item grid-item-{{byIdCategory.Document.size}} {{ include.content }}">
     <span class="text-md font-semibold">{{ byIdCategory.Document }}</span>
     <p>{{ byIdCategory.Topic }}</p>
-    <p class="text-xs">{{ byIdCategory.LastUpdated }}</p>
+    <p class="text-xs">{{ byIdCategory.LastUpdated | date: "%-d %B %Y"}}</p>
 </div>

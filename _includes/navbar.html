@@ -4,7 +4,13 @@
   </a>
   <p class="hidden md:block ml-4 text-sm leading-5 text-gray-500">
     WithLess
+    <span class="text-yellow-500">{% if jekyll.environment != 'development' %}
+  bukan development
+  {% else %}
+      devel<span class="text-red-500">opment</span>
+    {% endif %}</span>
   </p>
+
 </div>
 
 <div class="flex text-sm leading-5">
@@ -15,7 +21,7 @@
     <span class="hidden md:inline">Resume</span> PPh
   </a>
   <a href="/ewtail/r/ppn/" class="ml-2 font-medium text-gray-500 hover:text-gray-900 sm:ml-5">
-    <span class="hidden sm:inline">Resume</span> PPN
+    <span class="hidden md:inline">Resume</span> PPN
   </a>
   <a href="/pricing" class="ml-4 font-medium text-gray-500 hover:text-gray-900 sm:ml-12">
     Pricing
@@ -23,7 +29,7 @@
       & FAQ
     </span>
   </a>
-  <a href="/ewtail/r/pph/" class="ml-4 font-medium text-gray-500 hover:text-gray-900 sm:ml-12">
+  <a href="/ewtail/r/pph/" class="hidden md:block ml-4 font-medium text-gray-500 hover:text-gray-900 sm:ml-12">
     <span class="hidden sm:inline">Beri</span> Masukan
   </a>
 </div>
