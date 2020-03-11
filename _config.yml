@@ -60,8 +60,23 @@ repository: kelaspajak/ewtail
 
 github: [metadata]
 
+collections:
+  fitur:
+    output: true
+    permalink: /:collection/:path
+    screenshots: /assets/screenshot/logos.jpg
+
+
 include:
   - _pages
+
+
+defaults:
+  - scope:
+      path: ""
+      type: fitur
+    values:
+      layout: default
 
 branch: master
 

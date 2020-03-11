@@ -160,3 +160,13 @@ article h3 .category {
     transform: translate3d(-100%, 0, 0);
   }
 }
+
+
+/* test halama hero.html */
+.aspect-16x9 {
+  padding-bottom: 56.25%;
+}
+
+.translate-y-4 {
+--transform-translate-y: 1rem;
+}
