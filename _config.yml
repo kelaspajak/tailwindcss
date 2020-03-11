@@ -56,7 +56,7 @@ exclude:
   - vendor
   - ".git*"
 
-repository: kelaspajak/ewtail
+repository: kelaspajak/tailwindcss
 
 github: [metadata]
 
@@ -83,4 +83,4 @@ branch: master
 # Google Analytics
 google_analytics: UA-146778045-2
 
-baseurl: /ewtail
+baseurl: /tailwindcss
