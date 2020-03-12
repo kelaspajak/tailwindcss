@@ -65,3 +65,112 @@ td:last-child span {
       width: 45%;
   }
 }
+
+.featured {
+  background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
+}
+
+/* test */
+main {
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: repeat(2, 1fr) minmax(50px, 1fr);
+  grid-template-rows: repeat(10, min-content);
+}
+@media (min-width: 60em) {
+  main {
+    grid-template-columns: 10vw minmax(50px, 50vw) repeat(2, 1fr);
+    grid-template-rows: repeat(10, min-content);
+  }
+}
+
+[data-grid='grid-cell'] {
+  border-color: #ff0048;
+}
+[data-grid='grid-cell']:hover {
+  background: #ff0048;
+}
+
+[data-grid='grid-column'] {
+  border-color: rgba(2, 143, 118, 0.8);
+  grid-column: 3;
+  grid-row: 2 / 9;
+  position: relative;
+}
+@media (min-width: 60em) {
+  [data-grid='grid-column'] {
+    grid-column: 4;
+    grid-row: 1 / 6;
+  }
+}
+[data-grid='grid-column']:hover {
+  background: rgba(2, 143, 118, 0.8);
+}
+[data-grid='grid-column']:after {
+  background: rgba(26, 26, 26, 0.4);
+  bottom: 0;
+  color: white;
+  content: "As you can see, grid tracks can overlap";
+  left: 0;
+  padding: .7rem;
+  position: absolute;
+  right: 0;
+}
+
+[data-grid='grid-area'] {
+  border-color: #8a0054;
+  grid-column: 1 / span 2;
+  grid-row: span 3;
+}
+@media (min-width: 60em) {
+  [data-grid='grid-area'] {
+    grid-column: 2;
+  }
+}
+[data-grid='grid-area']:hover {
+  background: #8a0054;
+}
+
+[data-grid='grid-row'] {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(38, 95, 163, 0.8);
+  grid-column: 1 / -1;
+  grid-row: 8;
+}
+@media (min-width: 60em) {
+  [data-grid='grid-row'] {
+    grid-row: 5;
+  }
+}
+[data-grid='grid-row']:hover {
+  background: rgba(38, 95, 163, 0.8);
+}
+
+.title {
+  grid-column: 1 / -1;
+  grid-row: 1;
+}
+@media (min-width: 60em) {
+  .title {
+    grid-column: 2;
+  }
+}
+
+[data-grid] {
+  border-width: 1px;
+  border-style: solid;
+}
+[data-grid]:hover {
+  color: #fff;
+}
+
+main div {
+  border: 1px solid #ddd;
+  padding: .75vw 1vw;
+}
+
+/* 
+  https://codepen.io/akhil_001/pen/XNqQjw
+*/
+.bg-red-light {
+  background-color: #ef5753;

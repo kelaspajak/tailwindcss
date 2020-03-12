@@ -9,13 +9,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="canonical" href="{{ page.url | prepend: site.url }}">
-    
-    <!-- default <meta name="viewport" content="width=device-width, initial-scale=1">-->
     {% if jekyll.environment != 'development' %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.2.0/tailwind.min.css"></script>
-      
-    {% else %}
-      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.2.0/tailwind.min.css"></script>      
+    {% else %}      
     {% endif %}
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/tailwind.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/article.css?d={{ site.time | date: '%s' }}">  
