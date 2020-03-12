@@ -14,3 +14,54 @@
 .hover\:shadow-raised:hover {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
+
+/* untuk index.html */
+
+.specials-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#special_component {
+  width: 100%;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.nameandprice td {
+  padding: 1rem 0 0 0;
+  vertical-align: bottom;
+  background-image: radial-gradient(circle, black 1px, transparent 0px);
+  background-size: 8px 8px;
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+
+.nameandprice td:first-child {
+  text-align: left;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.nameandprice td:first-child span {
+  padding-right: 0.25em;
+}
+
+.nameandprice td:last-child {
+  text-align: right;
+  width: 2rem;
+  font-size: 20px;
+}
+
+td:last-child span {
+  padding-left: 0.25em;
+}
+
+@media (min-width: 992px) {
+  .specials-container table {
+      margin: 40px;
+      width: 45%;
+  }
+}
