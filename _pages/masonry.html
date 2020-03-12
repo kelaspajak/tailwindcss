@@ -73,18 +73,22 @@ permalink: /
             </div>
             <div class="lg:flex-no-shrink">
               30-day free trial
-              <span class="text-3xl block my-2 text-black font-semibold">$30</span> Yearly
+              <span class="text-3xl block hidden my-2 text-black font-semibold"></span> Yearly
               <strong>/ Monthly</strong>
             </div>
           </div>
           <div class="px-4 sm:px-6 py-8">
             <ul class="list-reset text-black mb-8">
-              <li class="flex items-center mb-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 mr-2" viewBox="0 0 24 24">
-                                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                                      />
-                                  </svg> Cloud-based
-              </li>
+                {% capture kup %}kup{% endcapture %}
+                {% assign dataidCategory = site.data[kup] | sort: "Last Updated" | reverse %}
+                {% for item in dataidCategory limit:15 %}            
+                <li class="flex items-center mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 mr-2" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg> {{ item.Document }}
+                </li>
+                {% endfor %}
             </ul>
             <a href="#" class="inline-block p-4 rounded text-sm text-white no-underline uppercase bg-teal">Get started today</a>
           </div>
@@ -98,43 +102,32 @@ permalink: /
               <p>For individuals who need to create and share beautiful maps and location apps using their own data.
               </p>
             </div>
+            <ul class="list-reset text-white mb-8">
+                {% capture ppn %}ppn{% endcapture %}
+                {% assign dataidCategory = site.data[ppn] | sort: "Last Updated" | reverse %}
+                {% for item in dataidCategory limit:6 %}            
+                <li class="flex items-center mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 mr-2" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg> {{ item.Document }}
+                </li>
+                {% endfor %}
+            </ul>
           </div>
           <div class="px-4 sm:px-6 py-8">
-            <ul class="list-reset mb-8 leading-normal">
-              <li class="flex items-center mb-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 mr-2" viewBox="0 0 24 24">
-                                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                                      />
-                                  </svg>
-                <span>Cloud-based or On-Premises</span>
-              </li>
-              <li class="flex items-center mb-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 mr-2" viewBox="0 0 24 24">
-                                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                                      />
-                                  </svg>
-                <span>CARTO Engine and Builder with API Keys</span>
-              </li>
-              <li class="flex items-center mb-3">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" class="flex-no-shrink w-4 mr-2" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                       </svg>
-                <span>Access to Data Observatory and Location Data Services</span>
-              </li>
-              <li class="flex items-center mb-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 mr-2" viewBox="0 0 24 24">
-                                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                                      />
-                                  </svg>
-                <span>Enterprise SLA</span>
-              </li>
-              <li class="flex items-center mb-3">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 mr-2" viewBox="0 0 24 24">
-                                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
-                                      />
-                                  </svg>
-                <span>Enterprise Customer Success Programs</span>
-              </li>
+            <a href="#" class="inline-block p-4 rounded text-sm text-white no-underline uppercase bg-teal">Get started today</a>
+            <ul class="list-reset mb-8 leading-normal inline-block">
+                {% capture ppn %}ppn{% endcapture %}
+                {% assign dataidCategory = site.data[ppn] | sort: "Last Updated" | reverse %}
+                {% for item in dataidCategory limit:6 %}            
+                <li class="flex items-center mb-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 mr-2" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg> {{ item.Document }}
+                </li>
+                {% endfor %}
             </ul>
             <a href="#" class="inline-block p-4 rounded text-sm text-white no-underline uppercase bg-teal">Get started today</a>
           </div>
