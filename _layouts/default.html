@@ -12,10 +12,10 @@
     
     <!-- default <meta name="viewport" content="width=device-width, initial-scale=1">-->
     {% if jekyll.environment != 'development' %}
-      <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/site.css?d={{ site.time | date: '%s' }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.2.0/tailwind.min.css"></script>
       
     {% else %}
-      <link rel="stylesheet" href="{{ site.baseurl }}/css/site.css">
+      <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/tailwind.css">
     {% endif %}
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/article.css?d={{ site.time | date: '%s' }}">  
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">

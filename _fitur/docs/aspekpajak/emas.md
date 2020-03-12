@@ -7,5 +7,5 @@ category: aspekpajak
 createdTime : 31/07/2019
 modifiedTime : 29/12/2019
 topik: Versi Lengkap
-img: ingots.png
+img: emas.png
 ---
