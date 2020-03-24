@@ -24,13 +24,13 @@ layout: default
                   {{ byIdCategory.name }}
                 </div>
                 <div class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                    {% assign listItems = byIdCategory.items | sort: 'P#' %}  
-                    <ul class="border border-blue-500 rounded-md hover:shadow-md focus:shadow-outline">
-                    {%-for item in listItems -%}
+                    {%- assign listItems = byIdCategory.items | sort: 'P#' -%}  
+                    <ul class="border rounded-md hover:shadow-md focus:shadow-outline">
+                    {%- for item in listItems -%}
                         {%- if item.Topic != nil -%}
                         {% else %} 
                         
-                          <li class="border-t first:border-t-0 border-gray-300 pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5 hover:bg-green-200">
+                          <li class="border-t first:border-t-0 border-gray-300 pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
                             <div class="w-0 flex-1 flex items-center">
                               <svg class="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M20.12 11.95l-6.58 6.59a5 5 0 1 1-7.08-7.07l6.59-6.6a3 3 0 0 1 4.24 4.25l-6.58 6.59a1 1 0 1 1-1.42-1.42l6.59-6.58a1 1 0 0 0-1.42-1.42l-6.58 6.59a3 3 0 0 0 4.24 4.24l6.59-6.58a5 5 0 0 0-7.08-7.08l-6.58 6.6a7 7 0 0 0 9.9 9.9l6.59-6.6a1 1 0 0 0-1.42-1.4z"/></svg>
                               <span class="ml-2 flex-1 w-0 truncate">
@@ -51,8 +51,8 @@ layout: default
                     {%- assign topics = site.data[page.dataid] | where: "Category", categoryName | group_by: 'Topic' | sort: "SortTopic" | reverse -%}
                     {%- for topic in topics -%}
                     {%- if topic.name.size > 0 -%}
-                    <ul x-data="dropdown()" class="border border-red-300 rounded-md mt-3 hover:shadow-md focus:shadow-outline">
-                      <li x-on:click="open()" class="border-t first:border-t-0 border-gray-200 pl-2 pr-4 py-3 flex items-center justify-between text-sm leading-5 hover:bg-green-200">
+                    <ul x-data="dropdown()" class="border rounded-md mt-3 hover:shadow-md focus:shadow-outline">
+                      <li x-on:click="open()" class="border-t first:border-t-0 border-gray-200 pl-2 pr-4 py-3 flex items-center justify-between text-sm leading-5">
                         <div class="w-0 flex-1 flex items-center">
                           <svg class="flex-shrink-0 h-5 w-5 text-gray-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20"><path d="M20 6a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-1.1.9-2 2-2h7.41l2 2H20zM4 6v12h16V8h-7.41l-2-2H4z"/></svg>
                           <span class="ml-2 flex-1 w-0 truncate">
